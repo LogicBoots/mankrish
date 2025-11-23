@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Manrope:wght@200..800&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    /* @apply text-luxury-gold-100; */
+    /* @apply bg-gradient-to-br from-luxury-platinum-800/80 via-luxury-obsidian-800/80 to-luxury-sapphire-900/80; */
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-luxury-gold-600 hover:bg-luxury-gold-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-200 transform hover:scale-105 hover:shadow-lg hover:shadow-luxury-gold-600/30;
+  }
+
+  .btn-secondary {
+    @apply bg-luxury-obsidian-700 hover:bg-luxury-obsidian-800 text-luxury-gold-100 font-medium px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-luxury-gold-600/20;
+  }
+
+  .card {
+    @apply bg-luxury-obsidian-800/90 backdrop-blur-md rounded-xl shadow-sm border border-luxury-gold-300 p-2 transition-all duration-300 hover:shadow-lg hover:border-luxury-gold-500 text-luxury-gold-100;
+  }
+
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+@theme inline {
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+}
