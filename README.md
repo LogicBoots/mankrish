@@ -1,6 +1,6 @@
-# Mankrish Global - AI-Powered Robotics Website
+# Mamle International - AI-Powered Robotics Website
 
-A modern, responsive website for Mankrish Global, a dynamic startup revolutionizing healthcare and household automation with AI-powered robotics. Built with React + Vite, styled with Tailwind CSS, and featuring smooth animations with Framer Motion.
+A modern, responsive website for Mamle International, a dynamic startup revolutionizing healthcare and household automation with AI-powered robotics. Built with React + Vite, styled with Tailwind CSS, and featuring smooth animations with Framer Motion.
 
 ## 🚀 Features
 

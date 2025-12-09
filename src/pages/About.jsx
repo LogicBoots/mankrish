@@ -37,7 +37,7 @@ const About = () => {
   ];
 
   return (
-    <section  id='about' className="min-h-screen pt-16 bg-[#FAF8F6] relative">
+    <section id='about' className="min-h-screen pt-16 bg-[#FAF8F6] relative">
       <div className="absolute inset-0 " />
       {/* Hero Section */}
       <SectionWrapper className="relative bg-gradient-to-br backdrop-blur-sm z-10">
@@ -48,7 +48,7 @@ const About = () => {
           className="text-center max-w-4xl mx-auto"
         >
           <h1 className="font-geist text-4xl md:text-6xl font-bold text-black  mb-6">
-            About  <span className='font-thin text-5xl'>Mankrish Global</span> 
+            About  <span className='font-thin text-5xl'>Mamle International</span>
           </h1>
           <p className="font-manrope text-xl text-black">
             Pioneering the future of AI-powered robotics to transform healthcare and household automation
@@ -58,7 +58,7 @@ const About = () => {
 
       {/* Company Introduction */}
       <SectionWrapper className="bg-black   border rounded-lg ">
-        <div className="  " /> 
+        <div className="  " />
         <div className="max-w-2\3xl mx-auto relative z-10 p-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -71,7 +71,7 @@ const About = () => {
               Our Story
             </h2>
             <p className="  text-luxury-gold-200 mb-6 ">
-              Mankrish Global was founded with a vision to bridge the gap between cutting-edge AI technology and practical,
+              Mamle International was founded with a vision to bridge the gap between cutting-edge AI technology and practical,
               life-changing applications. We recognized the immense potential of combining artificial intelligence with
               robotics to solve real-world challenges in healthcare and household automation.
             </p>
@@ -245,7 +245,7 @@ const About = () => {
         </div>
       </SectionWrapper>
 
-   
+
     </section>
   );
 };

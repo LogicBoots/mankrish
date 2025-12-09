@@ -1,12 +1,12 @@
 
 import React, { useState } from 'react';
 
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Linkedin, 
-  Github, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Github,
   Twitter,
   Send,
   User,
@@ -25,7 +25,7 @@ const ContactPage = () => {
     message: ''
   });
 
-  
+
 
   const handleInputChange = () => {
     const { name, value } = e.target;
@@ -37,33 +37,33 @@ const ContactPage = () => {
 
 
   const handleSubmit = async () => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    console.log("Form submitted:", formData);
-    // Send data to API
-    const res = await axios.post("/api/send", formData);
+    try {
+      console.log("Form submitted:", formData);
+      // Send data to API
+      const res = await axios.post("/api/send", formData);
 
-    if (res.data.success) {
-      alert("✅ Email sent successfully!");
-      // Reset form after success
-      setFormData({ name: "", email: "",  message: "" });
-    } else {
-      alert("❌ Failed to send email. Please try again.");
+      if (res.data.success) {
+        alert("✅ Email sent successfully!");
+        // Reset form after success
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        alert("❌ Failed to send email. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      alert("⚠️ Something went wrong. Please try again later.");
     }
-  } catch (error) {
-    console.error("Error sending email:", error);
-    alert("⚠️ Something went wrong. Please try again later.");
-  }
 
-};
+  };
 
   return (
     <div id='contact' className="min-h-screen bg-gradient-to-br  from-gray-50 via-white to-blue-50">
-        <div className='flex justify-center'>
-    
+      <div className='flex justify-center'>
 
-    </div>
+
+      </div>
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Information */}
@@ -71,7 +71,7 @@ const ContactPage = () => {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Get In Touch</h2>
               <p className="text-lg text-gray-600 mb-8">
-                
+
               </p>
             </div>
 
@@ -83,7 +83,7 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900">Email</h3>
-                  <p className="text-gray-600">sales@mankrishglobal.com</p>
+                  <p className="text-gray-600">sales@mamleinternational.com</p>
                 </div>
               </div>
 
@@ -122,11 +122,11 @@ const ContactPage = () => {
             <div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Connect With Me</h3>
               <div className="flex space-x-4">
-                <a 
-                  target="_blank" 
-                href="" className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors">
+                <a
+                  target="_blank"
+                  href="" className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors">
                   <Linkedin className="w-5 h-5" />
-                  
+
                 </a>
               </div>
             </div>
@@ -146,7 +146,7 @@ const ContactPage = () => {
           {/* Contact Form */}
           <div className="bg-white p-13 rounded-4xl shadow-xl p-12 rounded-lg">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Me a Message</h2>
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -186,7 +186,7 @@ const ContactPage = () => {
                 </div>
               </div>
 
-         
+
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
@@ -226,7 +226,7 @@ const ContactPage = () => {
       </div>
 
       {/* FAQ Section */}
-    
+
     </div>
   );
 };
