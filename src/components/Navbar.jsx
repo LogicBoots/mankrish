@@ -46,8 +46,8 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 rounded-full p-2 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || !isHomePage
-          ? "bg-white/20 backdrop-blur-md shadow-lg border-b border-white/30"
-          : "bg-transparent"
+        ? "bg-white/20 backdrop-blur-md shadow-lg border-b border-white/30"
+        : "bg-transparent"
         }`}>
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
@@ -87,8 +87,8 @@ const Navbar = () => {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`md:hidden p-2 rounded-lg transition-colors ${isHomePage && !isScrolled
-                ? "text-white hover:bg-white/10"
-                : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+              ? "text-white hover:bg-white/10"
+              : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
               }`}>
             <svg
               className="w-6 h-6 text-black"
@@ -129,8 +129,8 @@ const Navbar = () => {
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${location.pathname === item.path
-                        ? "text-primary-600 bg-primary-50"
-                        : "text-black hover:text-gray-900 hover:bg-gray-50"
+                      ? "text-primary-600 bg-primary-50"
+                      : "text-black hover:text-gray-900 hover:bg-gray-50"
                       }`}>
                     {item.label}
                   </a>
