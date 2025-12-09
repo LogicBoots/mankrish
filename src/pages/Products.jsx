@@ -80,7 +80,7 @@ const Products = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto px-4 sm:px-6"
         >
-  
+
         </motion.div>
       </SectionWrapper>
     </div>

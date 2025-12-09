@@ -1,296 +1,274 @@
 import { useParams, Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowLeftIcon } from "@heroicons/react/24/outline";
-import SectionWrapper from "../components/SectionWrapper";
-import { Stethoscope, Bot, Microscope, Rocket } from "lucide-react";
-
-// Import the carousel and its styles
-import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowLeftIcon, PlayIcon } from "@heroicons/react/24/outline";
+import { Stethoscope, Bot, Microscope, Rocket, ChevronRight } from "lucide-react";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import { useState } from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const ProductDetail = () => {
   const { id } = useParams();
+  const [activeTab, setActiveTab] = useState('overview');
 
   const productData = {
     "robotic-vacuum": {
-      title: "AI-Powered Robotic Vacuum Cleaners",
-      subtitle: "Smart Home Cleaning with Advanced AI Navigation",
-      backgroundVideo: "/images/vaccum.mp4", // Video for this product
+      title: "AI-Powered Robotic Vacuum",
+      subtitle: "The Future of Home Automation",
+      badge: "AI SERIES • GEN 3",
+      price: "$899.00",
+      status: "AVAILABLE",
+      backgroundVideo: "/images/vaccum.mp4",
       gallery: [
         "/images/vaccum.mp4",
         "/images/img5.jpeg",
         "/images/img2.jpeg",
         "/images/img4.jpeg",
       ],
-      description: "Our AI-powered robotic vacuum cleaners represent the next generation of smart home cleaning, combining cutting-edge robotics with intelligent navigation and automation.",
-      longDescription: `These advanced robotic vacuum cleaners utilize sophisticated AI algorithms to navigate complex home environments, learning from each cleaning session to optimize performance. The system features advanced obstacle detection, room mapping, and adaptive cleaning patterns that ensure thorough coverage while avoiding potential hazards.`,
-      features: ["AI-powered navigation and mapping", "Advanced obstacle detection and avoidance", "Adaptive cleaning patterns", "Smart home integration", "Remote monitoring and control", "Long battery life with auto-charging", "HEPA filtration system", "Customizable cleaning schedules"],
-      specifications: ["Battery Life: Up to 120 minutes", "Coverage Area: Up to 2000 sq ft", "Noise Level: <65 dB", 'Dimensions: 13.8" x 13.8" x 3.6"', "Weight: 6.5 lbs", "Connectivity: Wi-Fi, Bluetooth", "App Support: iOS & Android"],
-      benefits: ["Effortless cleaning automation", "Improved indoor air quality", "Time-saving convenience", "Energy-efficient operation", "Reduced manual cleaning effort"],
-      icon: <Bot size={44} color="#ffffff" />,
-      color: "from-green-500 to-green-600",
+      description: "Experience the pinnacle of smart cleaning. Our AI-powered independent navigation system adapts to your home's layout in real-time.",
+      longDescription: `Driven by a neural network processor, this isn't just a vacuum. It's an intelligent home maintenance droid. It learns your floor plan, identifies dirtier areas for deep cleaning, and avoids dynamic obstacles like pets and wires with millimeter precision.`,
+      features: ["Neural Network Navigation", "Lidar + Visual SLAM", "6000Pa Suction Power", "Self-Emptying Base", "Voice Control Matrix"],
+      specifications: [
+        { label: "Battery", value: "5200mAh" },
+        { label: "Runtime", value: "180 mins" },
+        { label: "Suction", value: "6000Pa" },
+        { label: "Noise", value: "< 62dB" },
+        { label: "Bin Capacity", value: "400ml" },
+        { label: "Weight", value: "3.2kg" }
+      ],
+      icon: <Bot size={24} className="text-cyan-400" />,
+      accentColor: "cyan",
+      gradient: "from-cyan-500/20 via-blue-500/10 to-transparent"
     },
+    // ... (Keep other products with similar structure or fallback)
     "ai-stethoscope": {
       title: "AI-Powered Stethoscope",
-      subtitle: "Revolutionary Digital Auscultation with AI Diagnosis",
-      gallery: [ // Example: Video added here
+      subtitle: "Digital Auscultation Redefined",
+      badge: "MEDTECH • PRO",
+      price: "$299.00",
+      status: "IN STOCK",
+      gallery: [
         "/images/i1.jpeg",
         "/images/i4.jpeg",
         "/images/i3.jpeg",
         "/images/i5.jpeg",
       ],
-      description: "Our AI-powered stethoscope transforms traditional auscultation into a digital, intelligent diagnostic tool that provides real-time analysis and remote monitoring capabilities.",
-      longDescription: `This revolutionary device combines high-fidelity audio capture with advanced AI algorithms to analyze heart, lung, and other bodily sounds in real-time. The AI system can detect subtle abnormalities, compare findings with extensive medical databases, and provide preliminary diagnostic suggestions to healthcare professionals.`,
-      features: ["High-fidelity audio capture", "Real-time AI analysis", "Remote monitoring capabilities", "Cloud-based data storage", "Integration with EMR systems", "Multi-frequency analysis", "Patient data encryption", "Mobile app compatibility"],
-      specifications: ["Audio Frequency Range: 20Hz - 20kHz", "Battery Life: Up to 8 hours", "Connectivity: Bluetooth 5.0, Wi-Fi", "Storage: 32GB internal + cloud", "Compatibility: iOS, Android, Windows", "Weight: 180g", "Water Resistance: IPX4"],
-      benefits: ["Enhanced diagnostic accuracy", "Remote patient assessment", "Improved healthcare accessibility", "Comprehensive patient monitoring", "Reduced healthcare costs"],
-      icon: <Stethoscope size={44} color="#ffffff" />,
-      color: "from-red-500 to-red-600",
+      description: "Next-gen diagnostic tool with active noise cancellation and AI-assisted heart/lung sound analysis.",
+      longDescription: "Transforms analog body sounds into digital insights (spectrograms). Detects murmurs and arrhythmias in real-time.",
+      features: ["Active Noise Cancellation", "Real-time AI Analysis", "Bluetooth 5.0", "HIPAA Compliant App"],
+      specifications: [
+        { label: "Battery", value: "20 Hours" },
+        { label: "Freq Response", value: "20Hz-20kHz" },
+        { label: "Weight", value: "150g" }
+      ],
+      icon: <Stethoscope size={24} className="text-rose-400" />,
+      accentColor: "rose",
+      gradient: "from-rose-500/20 via-red-500/10 to-transparent"
     },
     "nanobots-cancer": {
-      title: "Nanobots for Cancer Treatment",
-      subtitle: "Precision Medicine with Targeted Drug Delivery",
+      title: "Precision Nanobots",
+      subtitle: "Targeted Oncology Solution",
+      badge: "RESEARCH • BETA",
+      price: "CONTACT SALES",
+      status: "WAITLIST",
       gallery: [
         "/images/im2.jpeg",
         "/images/im1.jpeg",
         "/images/im3.jpeg",
         "/images/im4.jpeg",
       ],
-      description: "Our nanobots represent a breakthrough in cancer treatment, offering precise, targeted drug delivery that minimizes side effects while maximizing therapeutic effectiveness.",
-      longDescription: `These microscopic robots are designed to navigate the bloodstream, identify cancer cells with remarkable precision, and deliver therapeutic agents directly to the target site. The nanobots utilize advanced AI algorithms to distinguish between healthy and cancerous cells, ensuring minimal damage to surrounding tissue.`,
-      features: ["Precise cancer cell targeting", "Real-time monitoring capabilities", "Programmable drug delivery", "Minimal side effects", "Multiple treatment modalities", "Biodegradable materials", "Advanced imaging compatibility", "Personalized treatment protocols"],
-      specifications: ["Size: 50-100 nanometers", "Material: Biodegradable polymers", "Navigation: Magnetic guidance", "Detection: AI-powered recognition", "Payload Capacity: Variable", "Biocompatibility: ISO 10993 certified", "Clearance: Renal excretion"],
-      benefits: ["Targeted treatment delivery", "Reduced treatment side effects", "Improved patient outcomes", "Personalized medicine approach", "Enhanced treatment monitoring"],
-      icon: <Microscope size={44} color="#ffffff" />,
-      color: "from-purple-500 to-purple-600",
+      description: "Microscopic autonomous units designed for non-invasive targeted drug delivery at the cellular level.",
+      longDescription: "Revolutionary medical nanorobotics capable of navigating the bloodstream to deliver payloads directly to malignant cells.",
+      features: ["Cellular Targeting", " biocompatible Polymer", "External Mag Control", "Real-time Tracking"],
+      specifications: [
+        { label: "Size", value: "500nm" },
+        { label: "Material", value: "Bio-Polymer" },
+        { label: "Half-life", value: "48 Hours" }
+      ],
+      icon: <Microscope size={24} className="text-purple-400" />,
+      accentColor: "purple",
+      gradient: "from-purple-500/20 via-indigo-500/10 to-transparent"
     },
     placeholder: {
-      title: "Coming Soon",
-      subtitle: "Innovation in Development",
-      gallery: [
-        "/images/placeholder-1.jpg",
-        "/images/placeholder-2.jpg",
-      ],
-      description: "We are working on exciting new products that will further revolutionize healthcare and household automation.",
-      longDescription: `Our research and development team is constantly exploring new frontiers in AI and robotics. We're developing cutting-edge solutions that address emerging challenges in healthcare, automation, and beyond.`,
-      features: ["Advanced AI algorithms", "Cutting-edge robotics", "Innovative applications", "Industry-leading technology", "Patent-pending solutions"],
-      specifications: ["Status: In Development", "Timeline: TBA", "Technology: AI + Robotics", "Applications: Healthcare & Automation", "Innovation Level: Breakthrough"],
-      benefits: ["Future-ready solutions", "Industry innovation", "Competitive advantage", "Technology leadership", "Market disruption potential"],
-      icon: <Rocket size={44} color="#ffffff" />,
-      color: "from-gray-500 to-gray-600",
-    },
+      title: "Project: NextGen",
+      subtitle: "Coming Soon",
+      badge: "CONFIDENTIAL",
+      price: "---",
+      status: "DEVELOPMENT",
+      gallery: ["/images/placeholder-1.jpg"],
+      description: "Top secret innovation currently in the research and development phase.",
+      longDescription: "We are pushing the boundaries of what's possible.",
+      features: ["Undisclosed"],
+      specifications: [],
+      icon: <Rocket size={24} className="text-gray-400" />,
+      accentColor: "gray",
+      gradient: "from-gray-500/20 via-slate-500/10 to-transparent"
+    }
   };
 
   const data = productData[id];
 
-  if (!data) {
-    return (
-      <div className="min-h-screen pt-16 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Product Not Found</h1>
-          <Link to="/" className="btn-primary">Return Home</Link>
-        </div>
+  if (!data) return (
+    <div className="min-h-screen bg-[#050505] text-white flex items-center justify-center">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold mb-4">Product Not Found</h1>
+        <Link to="/" className="text-cyan-400 hover:underline">Return Home</Link>
       </div>
-    );
-  }
+    </div>
+  );
 
   return (
-    <div className="min-h-screen pt-16">
-      {/* MODIFIED: Hero Section with Background Image or Video */}
-      <div className="relative bg-gray-800 h-[500px] md:h-[600px] flex items-center justify-center">
-        {/* Conditional background rendering */}
-        {data.backgroundVideo ? (
-          <video
-            src={data.backgroundVideo}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute top-0 left-0 w-full h-full object-cover object-[center_85%] z-0"
-          />
-        ) : (
-          <div 
-            className="absolute inset-0 bg-cover bg-center z-0" 
-            style={{ backgroundImage: `url(${data.gallery[0]})` }}
-          />
-        )}
-        
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm z-10" />
+    <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-hidden flex flex-col">
+      <Navbar />
 
-        <SectionWrapper className="relative z-20">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center text-white">
-              <Link to="/" className="inline-flex items-center text-white/80 hover:text-white mb-6 transition-colors">
-                <ArrowLeftIcon className="w-5 h-5 mr-2" />
-                Back to Home
-              </Link>
-              <div className={`w-24 h-24 bg-gradient-to-br ${data.color} rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg`}>
-                <span className="text-4xl">{data.icon}</span>
-              </div>
-              <h1 className="font-geist text-4xl md:text-6xl font-bold mb-4">
-                {data.title}
-              </h1>
-              <p className="font-manrope text-xl md:text-2xl text-white/80 mb-6 max-w-3xl mx-auto">
-                {data.subtitle}
-              </p>
-            </motion.div>
-          </div>
-        </SectionWrapper>
+      {/* Background Ambience */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className={`absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-gradient-radial ${data.gradient} blur-[120px] opacity-40`} />
+        <div className={`absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-gradient-radial ${data.gradient} blur-[100px] opacity-30`} />
       </div>
 
-      {/* Description Section */}
-      <SectionWrapper className="bg-white">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.6 }}
-            className="prose prose-lg max-w-none">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Product Overview</h2>
-            <p className="text-gray-600 mb-6 leading-relaxed">{data.description}</p>
-            <p className="text-gray-600 leading-relaxed">{data.longDescription}</p>
-          </motion.div>
-        </div>
-      </SectionWrapper>
-      
-      {/* Carousel Section */}
-      <SectionWrapper className="bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Gallery</h2>
-            <Carousel 
-                showArrows={true} 
-                autoPlay={true} 
-                infiniteLoop={true}
-                showThumbs={false}
-                interval={9000}
-                className="rounded-2xl"
-            >
-                {/* === EDITED LOGIC START === */}
-                {data.gallery.map((mediaSrc, index) => {
-                  const isVideo = mediaSrc.endsWith('.mp4');
-                  return (
-                    <div key={index} className="h-[900px]">
-                      {isVideo ? (
-                        <video 
-                          src={mediaSrc}
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          className="object-contain h-full w-full"
-                        />
-                      ) : (
-                        <img 
-                          src={mediaSrc} 
-                          alt={`${data.title} gallery image ${index + 1}`} 
-                          className="object-contain h-full w-full" 
-                        />
-                      )}
-                    </div>
-                  );
-                })}
-                {/* === EDITED LOGIC END === */}
-            </Carousel>
-        </div>
-      </SectionWrapper>
+      <div className="relative z-10 container mx-auto px-6 pt-32 pb-12 flex-grow">
 
-      {/* Features Section */}
-      <SectionWrapper className="bg-white">
-        <div className="max-w-4xl mx-auto">
+
+
+        {/* Hero Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+
+          {/* Left: Text Content */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.6 }}
-            className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Key Features</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Advanced capabilities that make {data.title} stand out
-            </p>
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="space-y-8"
+          >
+            <div className={`inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-${data.accentColor}-500/10 border border-${data.accentColor}-500/20 text-${data.accentColor}-400 text-xs font-bold tracking-widest uppercase`}>
+              {data.icon}
+              <span>{data.badge}</span>
+            </div>
+
+            <div>
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.9] text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/40 mb-4">
+                {data.title.split(' ')[0]}<br />
+                <span className="text-white/20">{data.title.split(' ').slice(1).join(' ')}</span>
+              </h1>
+              <p className="text-xl text-white/60 max-w-lg leading-relaxed pt-4 border-t border-white/10 mt-8">
+                {data.description}
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-6 pt-4">
+              <button className={`px-8 py-4 rounded-full bg-gradient-to-r from-${data.accentColor}-500 to-${data.accentColor}-600 hover:from-${data.accentColor}-400 hover:to-${data.accentColor}-500 text-white font-bold tracking-wide shadow-lg shadow-${data.accentColor}-500/25 transition-all transform hover:scale-105 hover:shadow-${data.accentColor}-500/40`}>
+                PRE-ORDER NOW
+              </button>
+              <button className="group px-8 py-4 rounded-full border border-white/20 hover:bg-white/5 text-white font-semibold tracking-wide flex items-center gap-3 transition-all">
+                <PlayIcon className="w-5 h-5 group-hover:text-cyan-400 transition-colors" />
+                <span>WATCH DEMO</span>
+              </button>
+            </div>
+
+            <div className="pt-8 flex items-center gap-6 text-sm text-white/40">
+              <div className="flex -space-x-3">
+                {[1, 2, 3].map(i => (
+                  <div key={i} className="w-8 h-8 rounded-full bg-gray-700 border-2 border-[#050505]" />
+                ))}
+              </div>
+              <p>Joined by 12,000+ pioneers</p>
+            </div>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {data.features.map((feature, index) => (
-              <motion.div
-                key={feature}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="flex items-start space-x-4 p-6 bg-gray-50 rounded-xl border border-gray-100">
-                <div className={`w-8 h-8 bg-gradient-to-br ${data.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                </div>
-                <span className="text-gray-700 font-medium">{feature}</span>
-              </motion.div>
+
+          {/* Right: Hero Image/Media */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, rotate: 5 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="relative"
+          >
+            <div className="relative z-10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-blue-900/20 aspect-square md:aspect-[4/3] bg-gradient-to-br from-gray-900 to-black group">
+              <Carousel
+                showStatus={false}
+                showThumbs={false}
+                infiniteLoop
+                autoPlay
+                interval={5000}
+                className="product-carousel h-full"
+              >
+                {data.gallery.map((src, i) => (
+                  <div key={i} className="h-full w-full flex items-center justify-center bg-gray-900 aspect-square md:aspect-[4/3]">
+                    {src.endsWith('.mp4') ? (
+                      <video src={src} autoPlay loop muted playsInline className="h-full w-full object-cover" />
+                    ) : (
+                      <img src={src} alt={`Product View ${i}`} className="h-full w-full object-cover" />
+                    )}
+                  </div>
+                ))}
+              </Carousel>
+
+            </div>
+
+            {/* Background Glow */}
+            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-${data.accentColor}-500/20 blur-[100px] -z-10`} />
+          </motion.div>
+
+        </div>
+
+        {/* Scrollable Content Sections */}
+        <div className="mt-32 grid grid-cols-1 md:grid-cols-12 gap-12">
+
+          {/* Sidebar Navigation */}
+          <div className="md:col-span-3 sticky top-32 h-fit hidden md:block space-y-2">
+            <span className="text-xs font-bold text-white/40 uppercase tracking-widest pl-4 mb-4 block">Contents</span>
+            {['overview', 'specs'].map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all ${activeTab === tab ? `bg-white/10 text-white border-l-2 border-${data.accentColor}-400` : 'text-white/40 hover:text-white hover:bg-white/5'}`}
+              >
+                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              </button>
             ))}
           </div>
-        </div>
-      </SectionWrapper>
 
-      {/* Specifications & Benefits */}
-      <SectionWrapper className="bg-gray-50">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Technical Specifications</h2>
-            <div className="space-y-4">
-              {data.specifications.map((spec, index) => (
-                <motion.div
-                  key={spec}
-                  initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }} transition={{ duration: 0.6, delay: index * 0.05 }}
-                  className="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm">
-                  <span className="text-gray-600 font-medium">{spec.split(":")[0]}:</span>
-                  <span className="text-gray-900 font-semibold">{spec.split(":")[1]}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Key Benefits</h2>
-            <div className="space-y-4">
-              {data.benefits.map((benefit, index) => (
-                <motion.div
-                  key={benefit}
-                  initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }} transition={{ duration: 0.6, delay: index * 0.05 }}
-                  className="flex items-start space-x-3 p-4 bg-white rounded-lg shadow-sm">
-                  <div className={`w-6 h-6 bg-gradient-to-br ${data.color} rounded-full flex items-center justify-center flex-shrink-0 mt-1`}>
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+          {/* Main Content Area */}
+          <div className="md:col-span-9 space-y-20">
+
+            {/* Overview */}
+            <section id="overview" className="space-y-8">
+              <h2 className="text-3xl font-bold">Product Overview</h2>
+              <p className="text-lg text-white/70 leading-relaxed font-light">
+                {data.longDescription}
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {data.features.map((feature, i) => (
+                  <div key={i} className="p-6 rounded-xl bg-white/5 border border-white/5 hover:border-white/10 transition-colors flex items-start gap-4">
+                    <div className={`p-2 rounded-lg bg-${data.accentColor}-500/20 text-${data.accentColor}-400`}>
+                      <ChevronRight className="w-4 h-4" />
+                    </div>
+                    <span className="text-white/80 font-medium">{feature}</span>
                   </div>
-                  <span className="text-gray-700 font-medium">{benefit}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </SectionWrapper>
+                ))}
+              </div>
+            </section>
 
-      {/* Call to Action */}
-      <SectionWrapper className={`bg-gradient-to-br ${data.color}`}>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-6">Ready to Experience {data.title}?</h2>
-          <p className="text-xl text-white/90 mb-8 leading-relaxed">
-            Join the revolution in {id === "placeholder" ? "future technology" : "AI-powered solutions"} with our cutting-edge products.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="mailto:info@logicboots.com" className="btn-secondary bg-white text-gray-900 hover:bg-gray-100">
-              Get in Touch
-            </a>
-            <Link to="/about" className="btn-secondary bg-transparent border-2 border-white text-white hover:bg-white/10">
-              Learn More About Us
-            </Link>
+            {/* Specs */}
+            <section id="specs" className="space-y-8">
+              <h2 className="text-3xl font-bold">Technical Specifications</h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                {data.specifications.map((spec, i) => (
+                  <div key={i} className="p-4 border-l border-white/10">
+                    <div className="text-xs text-white/40 uppercase tracking-widest mb-1">{spec.label}</div>
+                    <div className="text-xl font-semibold">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
           </div>
-        </motion.div>
-      </SectionWrapper>
+        </div>
+
+      </div>
+      <Footer />
     </div>
   );
 };
-
 export default ProductDetail;

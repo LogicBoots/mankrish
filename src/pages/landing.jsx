@@ -35,24 +35,24 @@ import ContactPage from "../components/ContactPage";
 
 function Landing() {
   return (
- 
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-1">
-          <AnimatePresence mode="wait">
-              <Home />
-              <About />
-              <Products />
-                     <ContactPage/> 
-              {/* <FeaturedDetail /> */}
+
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-1">
+        <AnimatePresence mode="wait">
+          <Home />
+          <About />
+          <Products />
+          <ContactPage />
+          {/* <FeaturedDetail /> */}
 
 
 
-          </AnimatePresence>
-        </main>
-        <Footer />
-      </div>
- 
+        </AnimatePresence>
+      </main>
+      <Footer />
+    </div>
+
   );
 }
 

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import * as THREE from "three";
@@ -91,16 +92,16 @@ const Banner = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="/about"
+              <Link
+                to="/#about"
                 className="font-geist btn-primary text-base md:text-lg px-6 md:px-8 py-3 md:py-4 bg-white/10 text-black backdrop-blur-sm border border-white/20 hover:bg-white/20">
                 Learn More
-              </a>
-              <a
-                href="/products"
+              </Link>
+              <Link
+                to="/#products"
                 className="font-geist btn-secondary text-base md:text-lg px-6 md:px-8 py-3 md:py-4 bg-black border-2 border-white/30 text-white ">
                 Our Products
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
