@@ -230,39 +230,53 @@ const ProductDetail = () => {
           </div>
 
           {/* Main Content Area */}
-          <div className="md:col-span-9 space-y-20">
-
-            {/* Overview */}
-            <section id="overview" className="space-y-8">
-              <h2 className="text-3xl font-bold">Product Overview</h2>
-              <p className="text-lg text-white/70 leading-relaxed font-light">
-                {data.longDescription}
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {data.features.map((feature, i) => (
-                  <div key={i} className="p-6 rounded-xl bg-white/5 border border-white/5 hover:border-white/10 transition-colors flex items-start gap-4">
-                    <div className={`p-2 rounded-lg bg-${data.accentColor}-500/20 text-${data.accentColor}-400`}>
-                      <ChevronRight className="w-4 h-4" />
-                    </div>
-                    <span className="text-white/80 font-medium">{feature}</span>
+          <div className="md:col-span-9 min-h-[400px]">
+            <AnimatePresence mode="wait">
+              {activeTab === 'overview' ? (
+                <motion.section
+                  key="overview"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="space-y-8"
+                >
+                  <h2 className="text-3xl font-bold">Product Overview</h2>
+                  <p className="text-lg text-white/70 leading-relaxed font-light">
+                    {data.longDescription}
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {data.features.map((feature, i) => (
+                      <div key={i} className="p-6 rounded-xl bg-white/5 border border-white/5 hover:border-white/10 transition-colors flex items-start gap-4">
+                        <div className={`p-2 rounded-lg bg-${data.accentColor}-500/20 text-${data.accentColor}-400`}>
+                          <ChevronRight className="w-4 h-4" />
+                        </div>
+                        <span className="text-white/80 font-medium">{feature}</span>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </section>
-
-            {/* Specs */}
-            <section id="specs" className="space-y-8">
-              <h2 className="text-3xl font-bold">Technical Specifications</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                {data.specifications.map((spec, i) => (
-                  <div key={i} className="p-4 border-l border-white/10">
-                    <div className="text-xs text-white/40 uppercase tracking-widest mb-1">{spec.label}</div>
-                    <div className="text-xl font-semibold">{spec.value}</div>
+                </motion.section>
+              ) : (
+                <motion.section
+                  key="specs"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="space-y-8"
+                >
+                  <h2 className="text-3xl font-bold">Technical Specifications</h2>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                    {data.specifications.map((spec, i) => (
+                      <div key={i} className="p-4 border-l border-white/10">
+                        <div className="text-xs text-white/40 uppercase tracking-widest mb-1">{spec.label}</div>
+                        <div className="text-xl font-semibold">{spec.value}</div>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </section>
-
+                </motion.section>
+              )}
+            </AnimatePresence>
           </div>
         </div>
 
