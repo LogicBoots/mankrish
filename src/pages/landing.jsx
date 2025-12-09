@@ -10,6 +10,7 @@ import Footer from "../components/Footer";
 import PrivacyPolicy from "./PrivacyPolicy";
 import ContactPage from "../components/ContactPage";
 
+
 // function Landing() {
 //   return (
 //     <Router>
@@ -43,6 +44,8 @@ function Landing() {
           <Home />
           <About />
           <Products />
+
+
           <ContactPage />
           {/* <FeaturedDetail /> */}
 

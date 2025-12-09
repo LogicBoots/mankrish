@@ -5,7 +5,6 @@ import { Stethoscope } from "lucide-react";
 import { Bot } from "lucide-react";
 import { Microscope } from "lucide-react";
 import { Rocket } from "lucide-react";
-import ContactPage from '../components/ContactPage';
 
 const Products = () => {
   const products = [
