@@ -74,7 +74,7 @@ const Banner = () => {
                bg-gradient-to-r from-gray-700 via-black to-gray-700 
                bg-[length:200%] bg-clip-text text-transparent tracking-wide"
               >
-                <div className="lg:text-7xl md:text-5xl text-4xl">INTERNATIONAL</div>
+                <div className="lg:text-7xl md:text-5xl text-4xl">INTELLIGENCE</div>
               </motion.span>
             </motion.h1>
 
