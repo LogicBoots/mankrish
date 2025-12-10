@@ -12,7 +12,11 @@ const Footer = () => {
             <div className="flex items-center space-x-3 mb-5">
               <img src="/logo-s.png" className="w-10 h-10" alt="logo" />
               <span className="font-geist text-2xl font-semibold bg-gradient-to-r from-[#F4E3B2] to-[#D6C27A] bg-clip-text text-transparent">
+<<<<<<< HEAD
                 Mamle Intelligence
+=======
+                Mamale International
+>>>>>>> 1701dee (mamale)
               </span>
             </div>
 
@@ -85,7 +89,11 @@ const Footer = () => {
         {/* Bottom */}
         <div className="pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="font-manrope text-[#C5B88A]/70 text-sm">
+<<<<<<< HEAD
             © 2025 Mamle Intelligence — All Rights Reserved.
+=======
+            © 2025 Mamale International — All Rights Reserved.
+>>>>>>> 1701dee (mamale)
           </p>
           <p className="font-manrope text-[#C5B88A]/70 text-sm mt-4 md:mt-0">
             Built with ❤️ Intelligence & Precision

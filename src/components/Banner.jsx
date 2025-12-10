@@ -63,7 +63,7 @@ const Banner = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-5xl md:text-6xl lg:text-8xl font-extrabold leading-tight mb-4 md:mb-6 bg-gradient-to-r text-black bg-clip-text"
             >
-              <Flipper>Mamle</Flipper>
+              <Flipper>Mamale</Flipper>
 
               {/* Premium tagline — bigger, cleaner, luxury feel */}
               <motion.span

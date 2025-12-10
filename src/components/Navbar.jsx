@@ -65,7 +65,7 @@ const Navbar = () => {
               <img
                 className="py-3 w-auto h-16"
                 src="/logo2.png"
-                alt="Mamle International Logo"
+                alt="Mamale International Logo"
               />
             </motion.div>
           </a>
@@ -95,10 +95,10 @@ const Navbar = () => {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`md:hidden p-2 rounded-lg transition-colors ${isProductPage
+              ? "text-white hover:bg-white/10"
+              : (isHomePage && !isScrolled
                 ? "text-white hover:bg-white/10"
-                : (isHomePage && !isScrolled
-                  ? "text-white hover:bg-white/10"
-                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-100")
+                : "text-gray-600 hover:text-gray-900 hover:bg-gray-100")
               }`}>
             <svg
               className={`w-6 h-6 ${isProductPage ? "text-white" : "text-black"}`}
