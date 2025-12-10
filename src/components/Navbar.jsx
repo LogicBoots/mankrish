@@ -65,7 +65,7 @@ const Navbar = () => {
               <img
                 className="py-3 w-auto h-16"
                 src="/logo2.png"
-                alt="Mamale International Logo"
+                alt="Mamale Intelligence Logo"
               />
             </motion.div>
           </a>

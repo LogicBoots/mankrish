@@ -48,11 +48,7 @@ const About = () => {
           className="text-center max-w-4xl mx-auto"
         >
           <h1 className="font-geist text-4xl md:text-6xl font-bold text-black  mb-6">
-<<<<<<< HEAD
-            About  <span className='font-thin text-5xl'>Mamle Intelligence</span>
-=======
-            About  <span className='font-thin text-5xl'>Mamale International</span>
->>>>>>> 1701dee (mamale)
+            About  <span className='font-thin text-5xl'>Mamale Intelligence</span>
           </h1>
           <p className="font-manrope text-xl text-black">
             Pioneering the future of AI-powered robotics to transform healthcare and household automation
@@ -75,11 +71,7 @@ const About = () => {
               Our Story
             </h2>
             <p className="  text-luxury-gold-200 mb-6 ">
-<<<<<<< HEAD
-              Mamle Intelligence was founded with a vision to bridge the gap between cutting-edge AI technology and practical,
-=======
-              Mamale International was founded with a vision to bridge the gap between cutting-edge AI technology and practical,
->>>>>>> 1701dee (mamale)
+              Mamale Intelligence was founded with a vision to bridge the gap between cutting-edge AI technology and practical,
               life-changing applications. We recognized the immense potential of combining artificial intelligence with
               robotics to solve real-world challenges in healthcare and household automation.
             </p>

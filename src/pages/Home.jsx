@@ -118,7 +118,7 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="relative z-10 text-lg md:text-xl font-manrope text-luxury-gold-200 mb-8 md:mb-10 leading-relaxed max-w-4xl mx-auto">
-            At Mamale International, we're pioneering the future of AI-powered
+            At Mamale Intelligence, we're pioneering the future of AI-powered
             robotics, creating solutions that transform healthcare delivery and
             household automation. Our cutting-edge technology combines
             artificial intelligence with robotics to solve real-world

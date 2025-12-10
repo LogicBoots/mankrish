@@ -1,6 +1,6 @@
-# Mamale International - AI-Powered Robotics Website
+# Mamale Intelligence - AI-Powered Robotics Website
 
-A modern, responsive website for Mamale International, a dynamic startup revolutionizing healthcare and household automation with AI-powered robotics. Built with React + Vite, styled with Tailwind CSS, and featuring smooth animations with Framer Motion.
+A modern, responsive website for Mamale Intelligence, a dynamic startup revolutionizing healthcare and household automation with AI-powered robotics. Built with React + Vite, styled with Tailwind CSS, and featuring smooth animations with Framer Motion.
 
 ## 🚀 Features
 
