@@ -41,7 +41,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h4 className="text-gray-900 font-medium">Email Us</h4>
-                    <p className="text-gray-600">sales@mamleintelligence.com</p>
+                    <p className="text-gray-600">sales@mamaleintelligence.com</p>
                   </div>
                 </div>
 

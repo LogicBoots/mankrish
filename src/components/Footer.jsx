@@ -69,7 +69,7 @@ const Footer = () => {
             <ul className="mt-5 space-y-3 text-sm text-[#C5B88A]/80">
               <li>
                 <span className="font-semibold text-[#E8DCAE]">Email:</span>{" "}
-                sales@mamleintelligence.com
+                sales@mamaleintelligence.com
               </li>
               <li>
                 <span className="font-semibold text-[#E8DCAE]">Location:</span>{" "}
