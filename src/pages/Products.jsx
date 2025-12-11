@@ -48,7 +48,7 @@ const Products = () => {
           transition={{ duration: 0.8 }}
           className="text-center max-w-4xl mx-auto px-4 sm:px-6"
         >
-          <h1 className="font-geist text-3xl md:text-4xl lg:text-6xl font-bold text-black  bg-clip-text mb-4 md:mb-6">
+          <h1 className="font-geist text-4xl md:text-5xl font-bold text-black  mb-6">
             Our Product
           </h1>
           <p className="font-manrope text-lg md:text-xl text-black leading-relaxed">

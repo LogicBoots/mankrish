@@ -5,11 +5,7 @@ import SectionWrapper from './SectionWrapper';
 const ContactPage = () => {
   return (
     <div id="contact" className="relative min-h-screen pt-20 overflow-hidden bg-gray-50">
-      {/* Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-200 rounded-full blur-3xl mix-blend-multiply animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-200 rounded-full blur-3xl mix-blend-multiply animate-pulse delay-1000" />
-      </div>
+
 
       <SectionWrapper className="relative z-10 container mx-auto px-4">
         <motion.div
@@ -19,10 +15,10 @@ const ContactPage = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600 mb-4">
+          <h2 className="font-geist text-4xl md:text-5xl font-bold text-black  mb-6">
             Get in Touch
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="font-manrope text-xl text-black">
             Have a question or want to work together? We'd love to hear from you.
           </p>
         </motion.div>
@@ -130,7 +126,7 @@ const ContactPage = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-semibold py-4 rounded-lg shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transform hover:-translate-y-0.5 transition-all flex items-center justify-center space-x-2"
+                  className="w-full bg-white hover:bg-blue-300 text-black font-semibold py-4 rounded-lg shadow-lg shadow-purple-500/25 hover:-translate-y-0.5 transition-all flex items-center justify-center space-x-2"
                 >
                   <span>Send Message</span>
                   <Send className="w-4 h-4" />

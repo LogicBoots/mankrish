@@ -47,8 +47,8 @@ const About = () => {
           transition={{ duration: 0.8 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <h1 className="font-geist text-4xl md:text-6xl font-bold text-black  mb-6">
-            About  <span className='font-thin text-5xl'>Mamale Intelligence</span>
+          <h1 className="font-geist text-4xl md:text-5xl font-bold text-black  mb-6">
+            About  <span className='font-geist text-4xl md:text-5xl font-bold text-black  mb-6'>Us</span>
           </h1>
           <p className="font-manrope text-xl text-black">
             Pioneering the future of AI-powered robotics to transform healthcare and household automation

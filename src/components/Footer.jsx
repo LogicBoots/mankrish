@@ -10,9 +10,9 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-5">
-              <img src="/logo-s.png" className="w-10 h-10" alt="logo" />
+              <img src="/logo2.png" className="w-10 h-10" alt="logo" />
               <span className="font-geist text-2xl font-semibold bg-gradient-to-r from-[#F4E3B2] to-[#D6C27A] bg-clip-text text-transparent">
-                Mamale Intelligence
+                Mamale Intelligence.
               </span>
             </div>
 
