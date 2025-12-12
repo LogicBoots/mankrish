@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Mokoto';
+  src: url('./assets/fonts/ttf/mokoto-mokoto-regular-400.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
