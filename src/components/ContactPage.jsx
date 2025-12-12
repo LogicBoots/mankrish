@@ -41,7 +41,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h4 className="text-gray-900 font-medium">Email Us</h4>
-                    <p className="text-gray-600">sales@mamaleintelligence.com</p>
+                    <p className="text-gray-600">info@migpl.com</p>
                   </div>
                 </div>
 
@@ -51,7 +51,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h4 className="text-gray-900 font-medium">Call Us</h4>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                    <p className="text-gray-600">+91-9716040860, 7303490527</p>
                   </div>
                 </div>
 
@@ -61,7 +61,8 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h4 className="text-gray-900 font-medium">Visit Us</h4>
-                    <p className="text-gray-600">Gk 2 Delhi, India</p>
+                    <p className="text-gray-600">295, S/F, Western Marg, Gadaipur</p>
+                    <p className="text-gray-600">New Delhi, India-110030</p>
                   </div>
                 </div>
               </div>

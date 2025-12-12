@@ -23,7 +23,6 @@ const Navbar = () => {
     { href: "/", label: "Home", id: "home" },
     { href: "#about", label: "About", id: "about" },
     { href: "#products", label: "Products", id: "products" },
-
   ];
 
   const getLinkClass = (path) => {
@@ -31,14 +30,14 @@ const Navbar = () => {
 
     if (isProductPage) {
       // Light theme for product page -> Dark text
-      return isActive ? "text-black font-bold" : "text-gray-600 hover:text-black";
+      return isActive
+        ? "text-black font-bold"
+        : "text-gray-600 hover:text-black";
     }
 
     if (isHomePage) {
       if (isScrolled) {
-        return isActive
-          ? "text-primary-600"
-          : "text-black hover:text-gray-900";
+        return isActive ? "text-primary-600" : "text-black hover:text-gray-900";
       } else {
         return isActive ? "text-black" : "text-black ";
       }
@@ -53,20 +52,23 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 rounded-full p-2 left-0 right-0 z-50 transition-all duration-300 ${isProductPage
-        ? (isScrolled ? "bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm" : "bg-transparent")
-        : (isScrolled || !isHomePage
+      className={`fixed top-0 rounded-full p-2 left-0 right-0 z-50 transition-all duration-300 ${
+        isProductPage
+          ? isScrolled
+            ? "bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm"
+            : "bg-transparent"
+          : isScrolled || !isHomePage
           ? "bg-white/20 backdrop-blur-md shadow-lg border-b border-white/30"
-          : "bg-transparent")
-        }`}>
+          : "bg-transparent"
+      }`}>
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <a href="/" className="flex items-center space-x-2">
             <motion.div whileHover={{ scale: 1.05 }}>
               <img
-                className="py-3 w-auto h-16"
-                src="/logo2.png"
+                className="w-16 h-16 rounded-full object-cover"
+                src="/logo-n.png"
                 alt="Mamale Intelligence Logo"
               />
             </motion.div>
@@ -85,8 +87,13 @@ const Navbar = () => {
                 {location.pathname === item.href && (
                   <motion.div
                     layoutId="activeTab"
-                    className={`absolute -bottom-1 left-0 right-0 h-0.5 ${isHomePage && !isScrolled ? "bg-white" : (isProductPage ? "bg-black" : "bg-primary-600")
-                      } rounded-full`}
+                    className={`absolute -bottom-1 left-0 right-0 h-0.5 ${
+                      isHomePage && !isScrolled
+                        ? "bg-white"
+                        : isProductPage
+                        ? "bg-black"
+                        : "bg-primary-600"
+                    } rounded-full`}
                   />
                 )}
               </Link>
@@ -96,14 +103,17 @@ const Navbar = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden p-2 rounded-lg transition-colors ${isProductPage
-              ? "text-black hover:bg-gray-100"
-              : (isHomePage && !isScrolled
+            className={`md:hidden p-2 rounded-lg transition-colors ${
+              isProductPage
+                ? "text-black hover:bg-gray-100"
+                : isHomePage && !isScrolled
                 ? "text-white hover:bg-white/10"
-                : "text-gray-600 hover:text-gray-900 hover:bg-gray-100")
-              }`}>
+                : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+            }`}>
             <svg
-              className={`w-6 h-6 ${isProductPage ? "text-black" : "text-black"}`}
+              className={`w-6 h-6 ${
+                isProductPage ? "text-black" : "text-black"
+              }`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24">
@@ -140,10 +150,11 @@ const Navbar = () => {
                     key={item.label}
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${location.pathname === item.path
-                      ? "text-primary-600 bg-primary-50"
-                      : "text-black hover:text-gray-900 hover:bg-gray-50"
-                      }`}>
+                    className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                      location.pathname === item.path
+                        ? "text-primary-600 bg-primary-50"
+                        : "text-black hover:text-gray-900 hover:bg-gray-50"
+                    }`}>
                     {item.label}
                   </a>
                 ))}

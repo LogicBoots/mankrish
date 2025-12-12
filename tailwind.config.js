@@ -144,6 +144,7 @@ module.exports = withMT({
         sans: ["Inter", "system-ui", "sans-serif"],
         geist: ["Geist", "sans-serif"],
         manrope: ["Manrope", "sans-serif"],
+        mokoto: ["Mokoto", "sans-serif"],
       },
       animation: {
         "fade-in": "fadeIn 0.6s ease-in-out",
